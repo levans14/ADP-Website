@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APD Landscape — Landscape &amp; Hardscape Experts | Northern Virginia</title>
+  <meta name="description" content="Northern Virginia's trusted choice for hardscaping, patios, retaining walls, driveways, lawn care, tree removal, and drainage. Locally owned. Fair pricing. Results that go beyond expectations." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    /* ===== PAGE-SPECIFIC ===== */
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 88vh;
+      display: flex;
+      align-items: center;
+    }
+    .hero__bg {
+      position: absolute;
+      inset: 0;
+    }
+    .hero__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .hero__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to right, rgba(249,250,242,0.92) 0%, rgba(249,250,242,0.55) 55%, rgba(249,250,242,0.1) 100%);
+    }
+    .hero__content {
+      position: relative;
+      z-index: 2;
+      max-width: 640px;
+    }
+    .hero__content .t-h1 { color: var(--color-on-surface); margin-bottom: var(--space-md); }
+    .hero__content .t-body-lg { color: var(--color-on-surface-variant); margin-bottom: var(--space-lg); }
+    .hero__actions { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+
+    /* Bento grid */
+    .bento {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-template-rows: repeat(2, 300px);
+      gap: var(--space-gutter);
+    }
+    .bento__main {
+      grid-column: span 2;
+      grid-row: span 2;
+    }
+    .bento__card {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--color-outline-variant);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+    .bento__card img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .bento__card:hover img { transform: scale(1.04); }
+    .bento__card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.78) 0%, rgba(0,0,0,0.2) 45%, transparent 70%);
+    }
+    .bento__info {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: var(--space-lg);
+      z-index: 2;
+    }
+    .bento__info--sm { padding: var(--space-md); }
+    .bento__eyebrow {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-primary-fixed);
+      margin-bottom: var(--space-xs);
+    }
+    .bento__title { color: white; margin-bottom: var(--space-sm); }
+    .bento__desc { color: rgba(255,255,255,0.82); max-width: 480px; }
+
+    @media (max-width: 768px) {
+      .bento {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+      }
+      .bento__main { grid-column: 1; grid-row: auto; height: 380px; }
+      .bento__card { height: 240px; }
+    }
+
+    /* Transformation section */
+    .transform-section {
+      background: var(--color-surface-container-low);
+      border-top: 1px solid rgba(194,201,187,0.3);
+      border-bottom: 1px solid rgba(194,201,187,0.3);
+    }
+    .transform-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      margin-bottom: var(--space-lg);
+      gap: var(--space-md);
+    }
+    .transform-nav { display: flex; gap: var(--space-xs); }
+    .transform-nav-btn {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--color-outline);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-on-surface);
+      background: transparent;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .transform-nav-btn:hover { background: var(--color-surface-variant); }
+    .ba-wrapper {
+      position: relative;
+      aspect-ratio: 16/9;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .transform-caption {
+      margin-top: var(--space-md);
+      text-align: center;
+      color: var(--color-on-surface-variant);
+    }
+
+    /* Why Us */
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-lg);
+      align-items: center;
+    }
+    .why-grid__img {
+      border-radius: var(--radius-lg);
+      height: 520px;
+      width: 100%;
+      object-fit: cover;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    }
+    .why-features { display: flex; flex-direction: column; gap: var(--space-md); }
+    .why-feature { display: flex; gap: var(--space-md); align-items: flex-start; }
+    .why-feature__icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(45, 90, 39, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--color-primary-container);
+      margin-top: 2px;
+    }
+    .why-feature__title { font-family: var(--font-serif); font-size: 1.125rem; font-weight: 600; margin-bottom: 4px; }
+    .why-feature__body { color: var(--color-on-surface-variant); }
+
+    @media (max-width: 768px) {
+      .why-grid { grid-template-columns: 1fr; }
+      .why-grid__img { height: 280px; }
+    }
+
+    /* Form */
+    .form-card {
+      background: white;
+      border: 1px solid var(--color-outline-variant);
+      border-radius: var(--radius-lg);
+      padding: var(--space-xl);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+    }
+    .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
+    @media (max-width: 600px) { .form-grid { grid-template-columns: 1fr; } }
+    .form-stack { display: flex; flex-direction: column; gap: var(--space-md); }
+
+    /* Trust bar */
+    .trust-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-lg);
+      flex-wrap: wrap;
+      padding-block: var(--space-lg);
+      border-top: 1px solid var(--color-outline-variant);
+      border-bottom: 1px solid var(--color-outline-variant);
+    }
+    .trust-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+    }
+    .trust-item__num {
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-primary-container);
+      line-height: 1;
+    }
+    .trust-item__label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--color-secondary);
+    }
+    .trust-sep { width: 1px; height: 48px; background: var(--color-outline-variant); }
+    @media (max-width: 600px) { .trust-sep { display: none; } }
+  </style>
+</head>
+<body class="page-body">
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">APD Landscape</a>
+      <ul class="nav__links">
+        <li><a href="index.html#portfolio" class="nav__link">Portfolio</a></li>
+        <li><a href="services.html" class="nav__link">Services</a></li>
+        <li><a href="hardscaping.html#materials" class="nav__link">Materials</a></li>
+        <li><a href="index.html#about" class="nav__link">About</a></li>
+      </ul>
+      <button class="nav__cta" data-modal="quote">Get a Quote</button>
+      <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="index.html#portfolio" class="nav__link">Portfolio</a>
+    <a href="services.html" class="nav__link">Services</a>
+    <a href="hardscaping.html#materials" class="nav__link">Materials</a>
+    <a href="index.html#about" class="nav__link">About</a>
+    <button class="nav__cta" data-modal="quote">Get a Quote</button>
+  </div>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero section">
+      <div class="hero__bg">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuD7-bZWFyfUr0tLkX1uy_vHDJI0e2LJ6jC84QN75B5p7pXHSz_WjHh7b_AEhjkka01HJtfKKspCuzs2i3242dcuZFQyKCSqt9bCNNTYq1MH4huCI45HFqtlxlMOCt7ajZDUHwpfV9bVWlWzkTXoD7AcLnOT5_9-qUf8F0wFJOPcbx-8TsGpSzXOi8Q8rJy-cqd1TFt6KrlLJVUyOLOjX2kcWI9x-lob1XUx0JcCpEAB8pOQyAE5ltm0oZ3NT9oFtLBm4sC7hDcrRLXu"
+          alt="Expansive Pennsylvania Bluestone patio with modern outdoor furniture and lush landscaping"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="hero__overlay"></div>
+      <div class="container">
+        <div class="hero__content">
+          <h1 class="t-h1 fade-up">We don't just maintain outdoor spaces — we transform them.</h1>
+          <p class="t-body-lg fade-up fade-up-delay-1">Serving Northern Virginia with patios, retaining walls, driveways, lawn care, tree removal, and drainage solutions. Locally owned, fairly priced, and committed to results that go beyond expectations.</p>
+          <div class="hero__actions fade-up fade-up-delay-2">
+            <button class="btn-primary" data-modal="quote">Schedule Consultation</button>
+            <a href="index.html#portfolio" class="btn-ghost">View Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TRUST BAR -->
+    <div class="trust-bar container fade-up" id="about">
+      <div class="trust-item">
+        <span class="material-symbols-outlined" style="font-size:28px;color:var(--color-primary-container)">home_work</span>
+        <span class="trust-item__label">Locally Owned &amp; Operated</span>
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <span class="material-symbols-outlined" style="font-size:28px;color:var(--color-primary-container)">construction</span>
+        <span class="trust-item__label">All-In-One Services</span>
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <span class="material-symbols-outlined" style="font-size:28px;color:var(--color-primary-container)">grade</span>
+        <span class="trust-item__label">Top-Grade Materials</span>
+      </div>
+      <div class="trust-sep"></div>
+      <div class="trust-item">
+        <span class="material-symbols-outlined" style="font-size:28px;color:var(--color-primary-container)">payments</span>
+        <span class="trust-item__label">Fair &amp; Transparent Pricing</span>
+      </div>
+    </div>
+
+    <!-- SERVICES BENTO -->
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="section-header fade-up">
+          <h2 class="t-h2">Mastery in Every Discipline</h2>
+          <p class="t-body-md" style="color:var(--color-on-surface-variant)">From precision arboriculture to structural masonry, our specialized teams execute complex residential projects with absolute proficiency.</p>
+        </div>
+        <div class="bento fade-up fade-up-delay-1">
+          <!-- Large card -->
+          <div class="bento__card bento__main">
+            <img
+              src="assets/images/patio-firepit.jpg"
+              alt="Completed paver patio with fire pit and outdoor seating"
+              loading="lazy"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuCgWjE3MPqp-71Sb5i1yQz82rjmUGBKH1ex6LxwJW76zBsoGa_-URl1zJ9SuIqy0-cfK3Oqm_QRORqeebLe5FINkq7Lg3Ie6lIf4Yoo04tE7fPfsYGAGdLn-2oTCZMW-cLRzgoHs-9WHUh8N7NyVvMt7rbZzYrEVtamTbIUVS0NnxzdTx7sRM1M5XhKEkm7HShrzsYLzKOPdthi_cZZgfAXlKsO5PM-nNWtdFV-mF1t7OB9rLMl8DK7UvFzmNGCWy0uVw7h27gfalzY'"
+            />
+            <div class="bento__info">
+              <span class="bento__eyebrow">Core Service</span>
+              <h3 class="t-h3 bento__title">Hardscaping &amp; Masonry</h3>
+              <p class="t-body-md bento__desc">Custom patios, retaining walls, and outdoor kitchens crafted from premium natural stone and engineered materials.</p>
+            </div>
+          </div>
+          <!-- Small card 1 -->
+          <div class="bento__card">
+            <img
+              src="assets/images/tree-care.jpg"
+              alt="Professional tree care and removal"
+              loading="lazy"
+            />
+            <div class="bento__info bento__info--sm">
+              <h3 class="t-h3-sm bento__title">Tree Care</h3>
+              <p class="t-body-md bento__desc" style="font-size:0.875rem">Rigging, removal, and structural pruning.</p>
+            </div>
+          </div>
+          <!-- Small card 2 -->
+          <div class="bento__card">
+            <img
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtImOngNWS7J_3dvg_ZFwmvcXYi35M4aQRUZvuOXOJlWaGS-GGL-MuJqkQanFrfK1gbiNlr7xQ71Dk2QvOwjZK9uDMv1UqFTFH11oquNfjJvLD6G19YnEpHjThBt79cXZyE9X5TTuili0qRw9HjrG4p5fsmwFO7jleCog0ZZchvToFrSU9E2Sb_zDV1e704ClHoyokNzIZUGLjzf3GHTnBURvyFVzcXMo1QM7TaNQCTikHqr1asWjUxPLcY0tQk_IlkvGUoLC0W9_D"
+              alt="Lush freshly installed luxury landscaping"
+              loading="lazy"
+            />
+            <div class="bento__info bento__info--sm">
+              <h3 class="t-h3-sm bento__title">Landscape Design</h3>
+              <p class="t-body-md bento__desc" style="font-size:0.875rem">Horticultural planning and installation.</p>
+            </div>
+          </div>
+        </div>
+        <div style="text-align:center;margin-top:var(--space-lg)" class="fade-up">
+          <a href="services.html" class="btn-ghost">Explore All Services</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY US -->
+    <section class="section">
+      <div class="container">
+        <div class="why-grid">
+          <div class="fade-up">
+            <img
+              class="why-grid__img"
+              src="assets/images/raised-garden-bed.jpg"
+              alt="Stone raised garden bed showing APD craftsmanship"
+              loading="lazy"
+            />
+          </div>
+          <div class="fade-up fade-up-delay-1">
+            <h2 class="t-h2" style="margin-bottom:var(--space-lg)">What Makes Us Different</h2>
+            <div class="why-features">
+              <div class="why-feature">
+                <div class="why-feature__icon">
+                  <span class="material-symbols-outlined">construction</span>
+                </div>
+                <div>
+                  <p class="why-feature__title">All-In-One Services</p>
+                  <p class="t-body-md why-feature__body">Whether you need a simple tree cut or a full foundation repair, we handle it all — saving you time, coordination headaches, and money.</p>
+                </div>
+              </div>
+              <div class="why-feature">
+                <div class="why-feature__icon">
+                  <span class="material-symbols-outlined">map</span>
+                </div>
+                <div>
+                  <p class="why-feature__title">Locally Owned &amp; Operated</p>
+                  <p class="t-body-md why-feature__body">We understand the local environment, weather, and soil. Every solution is tailored for Northern Virginia's specific conditions and long-term success.</p>
+                </div>
+              </div>
+              <div class="why-feature">
+                <div class="why-feature__icon">
+                  <span class="material-symbols-outlined">verified</span>
+                </div>
+                <div>
+                  <p class="why-feature__title">Quality You Can Trust</p>
+                  <p class="t-body-md why-feature__body">Top-grade materials, modern equipment, and a customer-first approach. Our work isn't done until you're fully satisfied — clear communication and fair pricing, always.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEAD CAPTURE FORM -->
+    <section class="section" id="contact">
+      <div class="container" style="max-width:760px">
+        <div class="form-card fade-up">
+          <div class="section-header" style="margin-bottom:var(--space-lg)">
+            <h2 class="t-h2">Initiate Your Project</h2>
+            <p class="t-body-md" style="color:var(--color-on-surface-variant)">Provide the details below, and our project management team will contact you within 24 hours.</p>
+          </div>
+          <form class="form-stack" novalidate>
+            <div class="form-grid">
+              <div>
+                <label class="form-label" for="first-name">First Name</label>
+                <input class="form-input" id="first-name" type="text" placeholder="John" required />
+              </div>
+              <div>
+                <label class="form-label" for="last-name">Last Name</label>
+                <input class="form-input" id="last-name" type="text" placeholder="Doe" required />
+              </div>
+            </div>
+            <div>
+              <label class="form-label" for="email">Email Address</label>
+              <input class="form-input" id="email" type="email" placeholder="john@example.com" required />
+            </div>
+            <div>
+              <label class="form-label" for="phone">Phone Number</label>
+              <input class="form-input" id="phone" type="tel" placeholder="(703) 555-0100" />
+            </div>
+            <div>
+              <label class="form-label" for="project-type">Project Type</label>
+              <select class="form-input" id="project-type">
+                <option value="">Select a service...</option>
+                <option>Hardscaping &amp; Patios</option>
+                <option>Tree Removal &amp; Care</option>
+                <option>Landscape Design</option>
+                <option>Drainage &amp; Construction</option>
+                <option>Full Property Overhaul</option>
+              </select>
+            </div>
+            <div>
+              <label class="form-label" for="details">Project Details</label>
+              <textarea class="form-input" id="details" rows="4" placeholder="Briefly describe your vision or current challenge..."></textarea>
+            </div>
+            <button class="btn-primary" type="submit" style="width:100%;justify-content:center;padding:18px">
+              Request Consultation
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand">APD Landscape</p>
+        <p class="footer__copy">© 2025 APD Landscape.<br>Northern Virginia's Landscape<br>&amp; Hardscape Experts.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Hardscape</p>
+        <ul class="footer__links">
+          <li><a href="hardscaping.html" class="footer__link">Patios &amp; Masonry</a></li>
+          <li><a href="services.html#retaining-walls" class="footer__link">Retaining Walls</a></li>
+          <li><a href="services.html#driveways" class="footer__link">Driveways &amp; Walkways</a></li>
+          <li><a href="services.html#driveways" class="footer__link">Concrete Work</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Landscape</p>
+        <ul class="footer__links">
+          <li><a href="services.html#lawn-care" class="footer__link">Lawn Care &amp; Turf</a></li>
+          <li><a href="services.html#tree-care" class="footer__link">Tree Removal &amp; Care</a></li>
+          <li><a href="services.html#drainage" class="footer__link">Drainage &amp; Grading</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company</p>
+        <ul class="footer__links">
+          <li><a href="index.html#contact" class="footer__link">Contact</a></li>
+          <li><a href="#" class="footer__link">Privacy Policy</a></li>
+          <li><a href="#" class="footer__link">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY CTA -->
+  <button class="sticky-cta" data-modal="quote">
+    <span class="material-symbols-outlined">edit_document</span>
+    Get a Quote
+  </button>
+
+  <!-- QUOTE MODAL -->
+  <div id="quote-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;backdrop-filter:blur(4px)"
+       class="quote-overlay"></div>
+  <div id="quote-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+       background:white;border-radius:8px;padding:40px;width:min(520px,90vw);z-index:201;
+       box-shadow:0 24px 64px rgba(0,0,0,0.2);overflow-y:auto;max-height:90vh">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+      <h2 class="t-h3">Get a Quote</h2>
+      <button id="modal-close" aria-label="Close" style="padding:4px;color:var(--color-secondary)">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <form class="form-stack" novalidate>
+      <div class="form-grid">
+        <div>
+          <label class="form-label" for="m-first">First Name</label>
+          <input class="form-input" id="m-first" type="text" placeholder="John" required />
+        </div>
+        <div>
+          <label class="form-label" for="m-last">Last Name</label>
+          <input class="form-input" id="m-last" type="text" placeholder="Doe" required />
+        </div>
+      </div>
+      <div>
+        <label class="form-label" for="m-email">Email</label>
+        <input class="form-input" id="m-email" type="email" placeholder="john@example.com" required />
+      </div>
+      <div>
+        <label class="form-label" for="m-service">Service</label>
+        <select class="form-input" id="m-service">
+          <option value="">Select...</option>
+          <option>Hardscaping &amp; Patios</option>
+          <option>Tree Removal &amp; Care</option>
+          <option>Landscape Design</option>
+          <option>Drainage &amp; Construction</option>
+          <option>Full Property Overhaul</option>
+        </select>
+      </div>
+      <div>
+        <label class="form-label" for="m-details">Details</label>
+        <textarea class="form-input" id="m-details" rows="3" placeholder="Briefly describe your project..."></textarea>
+      </div>
+      <button class="btn-primary" type="submit" style="width:100%;justify-content:center;padding:16px">
+        Submit Request
+      </button>
+    </form>
+  </div>
+
+  <script>
+    // Modal show/hide uses CSS display toggling
+    document.querySelectorAll('[data-modal="quote"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('quote-modal').style.display = 'block';
+        document.getElementById('quote-overlay').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    document.getElementById('quote-overlay').addEventListener('click', closeModal);
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    function closeModal() {
+      document.getElementById('quote-modal').style.display = 'none';
+      document.getElementById('quote-overlay').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    // Form submission
+    document.getElementById('quote-modal').querySelector('form').addEventListener('submit', e => {
+      e.preventDefault();
+      e.currentTarget.innerHTML = `
+        <div style="text-align:center;padding:32px 0">
+          <span class="material-symbols-outlined" style="font-size:52px;color:var(--color-primary);display:block;margin-bottom:16px">check_circle</span>
+          <p class="t-h3" style="margin-bottom:8px;font-family:var(--font-serif)">Request Received</p>
+          <p class="t-body-md" style="color:var(--color-secondary)">We'll contact you within 24 hours.</p>
+        </div>`;
+      setTimeout(closeModal, 2800);
+    });
+    document.querySelector('#contact form').addEventListener('submit', e => {
+      e.preventDefault();
+      const btn = e.currentTarget.querySelector('button[type=submit]');
+      btn.textContent = 'Request Sent!';
+      btn.style.background = 'var(--color-surface-tint)';
+      setTimeout(() => { btn.textContent = 'Request Consultation'; btn.style.background = ''; }, 3000);
+    });
+  </script>
+  <script src="assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardscaping &amp; Patios — APD Landscape | Northern Virginia</title>
+  <meta name="description" content="APD Landscape builds durable patios, porches, and outdoor living areas in Northern Virginia. Natural stone, pavers, and engineered bases. Locally owned, fair pricing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    /* FULL-BLEED HERO */
+    .page-hero-full {
+      position: relative;
+      height: min(820px, 88vh);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .page-hero-full__bg {
+      position: absolute;
+      inset: 0;
+    }
+    .page-hero-full__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .page-hero-full__overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.72) 0%, rgba(0,0,0,0.2) 40%, transparent 70%);
+    }
+    .page-hero-full__content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: white;
+      padding: var(--space-xl) var(--space-gutter);
+      max-width: 860px;
+      width: 100%;
+      margin-bottom: var(--space-lg);
+    }
+    .page-hero-full__eyebrow {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      margin-bottom: var(--space-sm);
+      opacity: 0.85;
+    }
+    .page-hero-full__content .t-h1 { color: white; margin-bottom: var(--space-md); }
+    .page-hero-full__content .t-body-lg { opacity: 0.9; margin-bottom: var(--space-lg); }
+
+
+
+    /* MATERIALS GRID */
+    .materials-section {
+      background: var(--color-surface-container-low);
+      border-top: 1px solid var(--color-outline-variant);
+      border-bottom: 1px solid var(--color-outline-variant);
+    }
+    .materials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-gutter);
+    }
+    @media (max-width: 768px) {
+      .materials-grid { grid-template-columns: 1fr; }
+    }
+    .material-card {
+      background: white;
+      border: 1px solid rgba(114,121,110,0.15);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.02);
+      transition: box-shadow 0.3s;
+    }
+    .material-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.06); }
+    .material-card__img { width: 100%; height: 200px; object-fit: cover; }
+    .material-card__body { padding: var(--space-md); }
+    .material-card__title { margin-bottom: 6px; }
+    .material-card__desc { color: var(--color-secondary); }
+
+    /* CTA SECTION */
+    .cta-section { text-align: center; }
+    .cta-section .t-h2 { margin-bottom: var(--space-md); }
+    .cta-section .t-body-lg { color: var(--color-secondary); margin-bottom: var(--space-lg); }
+    .cta-actions { display: flex; gap: var(--space-md); justify-content: center; flex-wrap: wrap; }
+  </style>
+</head>
+<body class="page-body">
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">APD Landscape</a>
+      <ul class="nav__links">
+        <li><a href="index.html#portfolio" class="nav__link">Portfolio</a></li>
+        <li><a href="services.html" class="nav__link active">Services</a></li>
+        <li><a href="hardscaping.html#materials" class="nav__link active">Materials</a></li>
+        <li><a href="index.html#about" class="nav__link">About</a></li>
+      </ul>
+      <button class="nav__cta" data-modal="quote">Get a Quote</button>
+      <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="index.html#portfolio" class="nav__link">Portfolio</a>
+    <a href="services.html" class="nav__link active">Services</a>
+    <a href="hardscaping.html#materials" class="nav__link active">Materials</a>
+    <a href="index.html#about" class="nav__link">About</a>
+    <button class="nav__cta" data-modal="quote">Get a Quote</button>
+  </div>
+
+  <main>
+
+    <!-- FULL-BLEED HERO -->
+    <section class="page-hero-full">
+      <div class="page-hero-full__bg">
+        <img
+          src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgEy03sDFR6gSQRSmcFot87JEE1WWEfn3g2TNONitBDzlAnFp8Ey160frriWgpRWVo3K0maiV73EkNbq6XacUoypiNhi_lNNtHV4J8FB_yydHqdkapnPnuV0WHQqKYYEKvTAizwabxG_2k4BufA7uA9ryaWK9LZS-NReJzuFp0xWWuiyc6-rj2HDFEkGr8DmrWaQJsnxTpl7BNfCuLn9m13Alr8GN3Xj8Ldd4xXLE3_ekf6ISN-SI6-Zt_WcF3vnomlogfMav2APgg"
+          alt="Multi-level travertine patio with stone fire pit at dusk"
+          fetchpriority="high"
+        />
+      </div>
+      <div class="page-hero-full__overlay"></div>
+      <div class="page-hero-full__content container">
+        <span class="page-hero-full__eyebrow fade-up">Services — Masonry</span>
+        <h1 class="t-h1 fade-up fade-up-delay-1">Hardscaping &amp; Patios</h1>
+        <p class="t-body-lg fade-up fade-up-delay-2">Quality craftsmanship meets lasting results. We build patios, porches, and outdoor living spaces designed to hold up against Northern Virginia's climate for decades.</p>
+        <div class="fade-up fade-up-delay-3">
+          <button class="btn-white" data-modal="quote">Request a Hardscaping Consult</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- MATERIALS -->
+    <section class="materials-section section" id="materials">
+      <div class="container">
+        <div class="section-header fade-up">
+          <h2 class="t-h2">Premium Materials</h2>
+          <p class="t-body-md" style="color:var(--color-secondary)">We source only the highest-grade natural stone and engineered pavers to complement the classic architecture of the region.</p>
+        </div>
+        <div class="materials-grid">
+
+          <div class="material-card fade-up">
+            <img
+              class="material-card__img"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuAem51-i3KpQpHcDW0goC75IZx0QJfDFD7pybzjumlToZwQC6oRs8yVNyQe6tPY30b8fEDhEJNpEhpHxgfgXtlUCq2ZcB7T5ZGH0G-bx27AB7J6DCb96Zgo3gNsXmuUUJq2PuunwgE6SlVNjt6OlJXoz6cWigLZQHPF_2s7c2ibwEftTGJgauF4rh9dUiCzW3Qgh5jOBxP15pIomHTSl7zkrYPOqhdZOUjnYC6t8Po6WQe7jPqbSFON10xwVOaLAfFuJmOnJfi3DcuQ"
+              alt="Natural blue-grey bluestone paving with mortar joints"
+              loading="lazy"
+            />
+            <div class="material-card__body">
+              <h3 class="t-h3-sm material-card__title">Pennsylvania Bluestone</h3>
+              <p class="t-body-md material-card__desc">A regional classic. Offers a timeless, organic look with varying tones of grey, blue, and subtle rust. Perfect for historic and transitional-colonial homes.</p>
+            </div>
+          </div>
+
+          <div class="material-card fade-up fade-up-delay-1">
+            <img
+              class="material-card__img"
+              src="assets/images/paver-patio.jpg"
+              alt="Large gray paver patio showing professional French-pattern installation"
+              loading="lazy"
+              onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuDd8FBDkZP5jqAhO_wBwjpAhy9CZDKmdyTksXWaYrwuYpce8vyPcYSWdS00sBwHRfNViBcspsYMfyjp25JYB9K3XBsYo_lmy5nAnKHBBLkTS9JD3grNCnkDVa69hxovFDv0vwAhacqawbQJQ4voaKIQgn4qfDG-LMzE0DDEsWc2gX92YLLZv4_wSHX8mPrfmgfHtdq4LX7Ru3cichJ4n5OZyzytR3UUzPRfoMznRu5PI95kTGk4125qiGYPNxwyGzcMlfyE0yyjSwFT'"
+            />
+            <div class="material-card__body">
+              <h3 class="t-h3-sm material-card__title">Engineered Pavers</h3>
+              <p class="t-body-md material-card__desc">High durability with precise tolerances. Available in numerous textures and colors to mimic natural stone or cobble with greater uniformity.</p>
+            </div>
+          </div>
+
+          <div class="material-card fade-up fade-up-delay-2">
+            <img
+              class="material-card__img"
+              src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFpf7drdtjrcq2nUBO_tvro-WqfktBskt_6VLl-P6IAVHGmbgFtrLQEbRjM1DOhupo8qsRi38llctNHKs623R1FE8klRBWcgecqX5KUnf4DTW-bHKrvqgp1ij16i2DVT-lKTBpzHEvl2WsofyTa6nRjcYUYz0Kj_Sc1_eqXKg8e6a7GrGWpbpoeG-bgSiptym3_iCoV3FmqilHeL3TOR9Dr0qaJPnrIVIHu4zJx9gW18t9ir4fWQw57oqZyUlDG6bGMfXCh5YbIkuP"
+              alt="Light ivory travertine stone surface"
+              loading="lazy"
+            />
+            <div class="material-card__body">
+              <h3 class="t-h3-sm material-card__title">French Pattern Travertine</h3>
+              <p class="t-body-md material-card__desc">An elegant, cool-to-the-touch option ideal for pool surrounds and high-end outdoor entertaining spaces. Timeless European character.</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section cta-section">
+      <div class="container" style="max-width:740px">
+        <div class="fade-up">
+          <h2 class="t-h2">Ready to transform your landscape?</h2>
+          <p class="t-body-lg">Schedule a consultation with our master designers to discuss your vision, materials, and timeline. We respond within 24 hours.</p>
+          <div class="cta-actions">
+            <button class="btn-primary" data-modal="quote">Request a Hardscaping Consult</button>
+            <a href="services.html" class="btn-ghost">View All Services</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand">APD Landscape</p>
+        <p class="footer__copy">© 2025 APD Landscape.<br>Northern Virginia's Landscape<br>&amp; Hardscape Experts.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Hardscape</p>
+        <ul class="footer__links">
+          <li><a href="hardscaping.html" class="footer__link">Patios &amp; Masonry</a></li>
+          <li><a href="services.html#retaining-walls" class="footer__link">Retaining Walls</a></li>
+          <li><a href="services.html#driveways" class="footer__link">Driveways &amp; Walkways</a></li>
+          <li><a href="services.html#driveways" class="footer__link">Concrete Work</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Landscape</p>
+        <ul class="footer__links">
+          <li><a href="services.html#lawn-care" class="footer__link">Lawn Care &amp; Turf</a></li>
+          <li><a href="services.html#tree-care" class="footer__link">Tree Removal &amp; Care</a></li>
+          <li><a href="services.html#drainage" class="footer__link">Drainage &amp; Grading</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company</p>
+        <ul class="footer__links">
+          <li><a href="index.html#contact" class="footer__link">Contact</a></li>
+          <li><a href="#" class="footer__link">Privacy Policy</a></li>
+          <li><a href="#" class="footer__link">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <!-- STICKY CTA -->
+  <button class="sticky-cta" data-modal="quote">
+    <span class="material-symbols-outlined">edit_document</span>
+    Get a Quote
+  </button>
+
+  <!-- QUOTE MODAL -->
+  <div id="quote-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;backdrop-filter:blur(4px)"></div>
+  <div id="quote-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+       background:white;border-radius:8px;padding:40px;width:min(520px,90vw);z-index:201;
+       box-shadow:0 24px 64px rgba(0,0,0,0.2);overflow-y:auto;max-height:90vh">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+      <h2 class="t-h3">Get a Quote</h2>
+      <button id="modal-close" aria-label="Close" style="padding:4px;color:var(--color-secondary)">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <form class="form-stack" novalidate>
+      <div class="form-grid">
+        <div>
+          <label class="form-label">First Name</label>
+          <input class="form-input" type="text" placeholder="John" required />
+        </div>
+        <div>
+          <label class="form-label">Last Name</label>
+          <input class="form-input" type="text" placeholder="Doe" required />
+        </div>
+      </div>
+      <div>
+        <label class="form-label">Email</label>
+        <input class="form-input" type="email" placeholder="john@example.com" required />
+      </div>
+      <div>
+        <label class="form-label">Service</label>
+        <select class="form-input">
+          <option value="">Select...</option>
+          <option>Hardscaping &amp; Patios</option>
+          <option>Tree Removal &amp; Care</option>
+          <option>Landscape Design</option>
+          <option>Drainage &amp; Construction</option>
+          <option>Full Property Overhaul</option>
+        </select>
+      </div>
+      <div>
+        <label class="form-label">Details</label>
+        <textarea class="form-input" rows="3" placeholder="Briefly describe your project..."></textarea>
+      </div>
+      <button class="btn-primary" type="submit" style="width:100%;justify-content:center;padding:16px">Submit Request</button>
+    </form>
+  </div>
+
+  <script>
+    document.querySelectorAll('[data-modal="quote"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('quote-modal').style.display = 'block';
+        document.getElementById('quote-overlay').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    document.getElementById('quote-overlay').addEventListener('click', closeModal);
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    function closeModal() {
+      document.getElementById('quote-modal').style.display = 'none';
+      document.getElementById('quote-overlay').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.getElementById('quote-modal').querySelector('form').addEventListener('submit', e => {
+      e.preventDefault();
+      e.currentTarget.innerHTML = `
+        <div style="text-align:center;padding:32px 0">
+          <span class="material-symbols-outlined" style="font-size:52px;color:var(--color-primary);display:block;margin-bottom:16px">check_circle</span>
+          <p style="font-family:var(--font-serif);font-size:1.5rem;font-weight:600;margin-bottom:8px">Request Received</p>
+          <p style="color:var(--color-secondary)">We'll contact you within 24 hours.</p>
+        </div>`;
+      setTimeout(closeModal, 2800);
+    });
+  </script>
+  <script src="assets/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services — APD Landscape | Northern Virginia</title>
+  <meta name="description" content="APD Landscape offers patios, retaining walls, driveways, walkways, concrete work, lawn care, tree removal, and drainage solutions in Northern Virginia. Locally owned, fair pricing." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="assets/styles.css" />
+  <style>
+    .page-hero {
+      background: var(--color-surface-container-low);
+      padding-block: var(--space-xl);
+      text-align: center;
+      border-bottom: 1px solid var(--color-outline-variant);
+    }
+    .page-hero__eyebrow {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--color-surface-tint);
+      margin-bottom: var(--space-sm);
+    }
+    .page-hero .t-h1 { color: var(--color-primary); margin-bottom: var(--space-md); }
+    .page-hero .t-body-lg { color: var(--color-secondary); max-width: 620px; margin-inline: auto; }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-md);
+    }
+    @media (max-width: 900px) { .services-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 560px)  { .services-grid { grid-template-columns: 1fr; } }
+
+    .service-card {
+      background: white;
+      border: 1px solid var(--color-outline-variant);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+    .service-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+      transform: translateY(-3px);
+    }
+    .service-card__img-wrap { height: 220px; overflow: hidden; }
+    .service-card__img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.7s ease;
+    }
+    .service-card:hover .service-card__img { transform: scale(1.05); }
+    .service-card__body {
+      padding: var(--space-gutter);
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-sm);
+    }
+    .service-card__category {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--color-surface-tint);
+    }
+    .service-card__category span { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; }
+    .service-card__title { color: var(--color-on-surface); }
+    .service-card__desc { color: var(--color-secondary); flex: 1; }
+    .service-card__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+    }
+    .service-card__list li {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.875rem;
+      color: var(--color-secondary);
+    }
+    .service-card__list .material-symbols-outlined { font-size: 16px; color: var(--color-primary); flex-shrink: 0; }
+    .service-card__link {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--color-primary);
+      transition: color 0.2s;
+      margin-top: auto;
+      padding-top: var(--space-sm);
+    }
+    .service-card__link:hover { color: var(--color-surface-tint); }
+    .service-card__link .material-symbols-outlined { font-size: 16px; transition: transform 0.2s; }
+    .service-card:hover .service-card__link .material-symbols-outlined { transform: translateX(4px); }
+  </style>
+</head>
+<body class="page-body">
+
+  <!-- NAV -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo">APD Landscape</a>
+      <ul class="nav__links">
+        <li><a href="index.html#portfolio" class="nav__link">Portfolio</a></li>
+        <li><a href="services.html" class="nav__link active">Services</a></li>
+        <li><a href="hardscaping.html#materials" class="nav__link">Materials</a></li>
+        <li><a href="index.html#about" class="nav__link">About</a></li>
+      </ul>
+      <button class="nav__cta" data-modal="quote">Get a Quote</button>
+      <button class="nav__hamburger" id="nav-hamburger" aria-expanded="false" aria-controls="nav-mobile" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="nav__mobile" id="nav-mobile">
+    <a href="index.html#portfolio" class="nav__link">Portfolio</a>
+    <a href="services.html" class="nav__link active">Services</a>
+    <a href="hardscaping.html#materials" class="nav__link">Materials</a>
+    <a href="index.html#about" class="nav__link">About</a>
+    <button class="nav__cta" data-modal="quote">Get a Quote</button>
+  </div>
+
+  <main>
+
+    <!-- PAGE HERO -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="page-hero__eyebrow fade-up">What We Do</span>
+        <h1 class="t-h1 fade-up fade-up-delay-1">Our Services</h1>
+        <p class="t-body-lg fade-up fade-up-delay-2">From patios and retaining walls to lawn care, tree removal, and drainage — we handle every aspect of your outdoor property so you don't have to coordinate multiple contractors.</p>
+      </div>
+    </section>
+
+    <!-- SERVICES GRID -->
+    <section class="section">
+      <div class="container">
+        <div class="services-grid">
+
+          <!-- 1. Hardscaping & Patios -->
+          <article class="service-card fade-up" id="hardscaping">
+            <div class="service-card__img-wrap">
+              <img class="service-card__img"
+                src="assets/images/paver-patio.jpg"
+                alt="Large gray paver patio with French pattern installation"
+                loading="lazy"
+                onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuBuwWcJ_Wsn8xIM2p7yVX00rPHygYw0kjF-LaOQxkWbGjm7afodxXcAcCoIix5to8Uycz4lUCvM314ovAWKVunNbHhC0dk3kjMQjTM3K_tLCe1U2DyoIKR7ARH_H-41bNxNbhivWIB-ajQLC5TaY7rKMwDB-LIfPat0KdkXT2AAazOVzktjG6YTCaiYoFwb0OZYoxHqro2C8V5f59zJIuLmh9GhSEf7xT7XMtQfdG5-lcUmcZ2Wi4WJAOyoi3N2szZRCy0vwZJ0plR3'"
+              />
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__category">
+                <span class="material-symbols-outlined fill" style="font-size:18px">architecture</span>
+                <span>Masonry</span>
+              </div>
+              <h2 class="t-h3-sm service-card__title">Hardscaping &amp; Patios</h2>
+              <p class="t-body-md service-card__desc">Architectural-grade patios, porches, and outdoor living areas constructed on engineered bases for lifetime durability.</p>
+              <ul class="service-card__list">
+                <li><span class="material-symbols-outlined">done</span>Patio &amp; terrace construction</li>
+                <li><span class="material-symbols-outlined">done</span>Natural stone &amp; paver installation</li>
+                <li><span class="material-symbols-outlined">done</span>Masonry repair &amp; restoration</li>
+              </ul>
+              <a href="hardscaping.html" class="service-card__link">
+                Learn More <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 2. Retaining Walls -->
+          <article class="service-card fade-up fade-up-delay-1" id="retaining-walls">
+            <div class="service-card__img-wrap">
+              <img class="service-card__img"
+                src="assets/images/boulder-retaining-wall.jpg"
+                alt="Natural boulder retaining wall alongside a brick residential home"
+                loading="lazy"
+                onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuD9t_46blr1IQvMdAqigTXjkBRXwS4MxeANwuFSMumCjDjsId0cViF7JfMIlcGpKeMBHdGC0gu5LyvMAu8JgC9n3usw_-fDGwN0rPjzpD_ggmg7liQhVyAVJ_Vx93Qp-DQgn1yE47vhYvJjUlxIG7oP5XHoFN38YxbQcfPUuDhcJ-_Gm9vfnjSE17SU0-znraQwsMapdDXe8UtsJg7oN0jHvjOxrDeJbAsIIVOlBGm9mg3tsj2xCnhE0OqXYDzeYyx6KAlzck5qydvD'"
+              />
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__category">
+                <span class="material-symbols-outlined fill" style="font-size:18px">foundation</span>
+                <span>Structural</span>
+              </div>
+              <h2 class="t-h3-sm service-card__title">Retaining Walls</h2>
+              <p class="t-body-md service-card__desc">Boulder, block, and stone retaining walls that hold your landscape in place while adding structure and curb appeal.</p>
+              <ul class="service-card__list">
+                <li><span class="material-symbols-outlined">done</span>Exterior wall construction</li>
+                <li><span class="material-symbols-outlined">done</span>Retaining wall repair</li>
+                <li><span class="material-symbols-outlined">done</span>Natural boulder &amp; block systems</li>
+              </ul>
+              <a href="index.html#contact" class="service-card__link">
+                Get a Quote <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 3. Driveways, Walkways & Concrete -->
+          <article class="service-card fade-up fade-up-delay-2" id="driveways">
+            <div class="service-card__img-wrap">
+              <img class="service-card__img"
+                src="assets/images/concrete-walkway.jpg"
+                alt="Freshly poured concrete walkway and apron near a home entrance"
+                loading="lazy"
+                onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuBuwWcJ_Wsn8xIM2p7yVX00rPHygYw0kjF-LaOQxkWbGjm7afodxXcAcCoIix5to8Uycz4lUCvM314ovAWKVunNbHhC0dk3kjMQjTM3K_tLCe1U2DyoIKR7ARH_H-41bNxNbhivWIB-ajQLC5TaY7rKMwDB-LIfPat0KdkXT2AAazOVzktjG6YTCaiYoFwb0OZYoxHqro2C8V5f59zJIuLmh9GhSEf7xT7XMtQfdG5-lcUmcZ2Wi4WJAOyoi3N2szZRCy0vwZJ0plR3'"
+              />
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__category">
+                <span class="material-symbols-outlined fill" style="font-size:18px">garage</span>
+                <span>Concrete</span>
+              </div>
+              <h2 class="t-h3-sm service-card__title">Driveways, Walkways &amp; Concrete</h2>
+              <p class="t-body-md service-card__desc">New poured concrete driveways, walkways, and aprons — plus expert repair of existing concrete and masonry surfaces.</p>
+              <ul class="service-card__list">
+                <li><span class="material-symbols-outlined">done</span>Driveway construction &amp; installation</li>
+                <li><span class="material-symbols-outlined">done</span>Walkway construction</li>
+                <li><span class="material-symbols-outlined">done</span>Masonry &amp; concrete repair</li>
+              </ul>
+              <a href="index.html#contact" class="service-card__link">
+                Get a Quote <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 4. Lawn Care & Turf -->
+          <article class="service-card fade-up" id="lawn-care">
+            <div class="service-card__img-wrap">
+              <img class="service-card__img"
+                src="assets/images/turf-install.jpg"
+                alt="Artificial turf installation with steel edging in progress"
+                loading="lazy"
+                onerror="this.src='https://lh3.googleusercontent.com/aida-public/AB6AXuC3gCAECaRTX-hETiCkJ0LrXg12BbyMTtb1W5fJmgEORhiCtJGKDmzCjdXxDY9H6FyuSLswWVWkBfKz9ph3IdwLEQbzdYIcHtTYGA_joEY3KwKw20RaY6g360oqq430QEjTtEAchyWab-mVI9odETHPS3RLee5nd0MT26ci98Vs7gCy8NaYfaNkM4uyxTQDYh5lq4GZbp9lv9DWJKIaEkQCYCpjdIVo2qQImOiq0YIZYNQViBWyvaSq88O3zIgRopaPwW_IVJ3HAaPE'"
+              />
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__category">
+                <span class="material-symbols-outlined fill" style="font-size:18px">grass</span>
+                <span>Horticulture</span>
+              </div>
+              <h2 class="t-h3-sm service-card__title">Lawn Care &amp; Turf</h2>
+              <p class="t-body-md service-card__desc">From sod and artificial turf installation to ongoing lawn maintenance — vibrant green spaces tailored to your property.</p>
+              <ul class="service-card__list">
+                <li><span class="material-symbols-outlined">done</span>Lawn care &amp; maintenance</li>
+                <li><span class="material-symbols-outlined">done</span>Sod &amp; artificial turf installation</li>
+                <li><span class="material-symbols-outlined">done</span>Native planting &amp; beds</li>
+              </ul>
+              <a href="index.html#contact" class="service-card__link">
+                Get a Quote <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 5. Tree Care & Removal -->
+          <article class="service-card fade-up fade-up-delay-1" id="tree-care">
+            <div class="service-card__img-wrap">
+              <img class="service-card__img"
+                src="assets/images/tree-care.jpg"
+                alt="Professional tree care and removal"
+                loading="lazy"
+                onerror="this.style.display='none';this.parentElement.style.background='linear-gradient(135deg,#2d5a27 0%,#3b6934 100%)';this.parentElement.innerHTML+='<span class=\'material-symbols-outlined\' style=\'position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-size:56px;color:rgba(255,255,255,0.4)\'>nature</span>';"
+              />
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__category">
+                <span class="material-symbols-outlined fill" style="font-size:18px">nature</span>
+                <span>Arboriculture</span>
+              </div>
+              <h2 class="t-h3-sm service-card__title">Tree Care &amp; Removal</h2>
+              <p class="t-body-md service-card__desc">Expert tree services from routine pruning and health assessments to full removals, stump grinding, and replanting.</p>
+              <ul class="service-card__list">
+                <li><span class="material-symbols-outlined">done</span>Tree removal &amp; transplanting</li>
+                <li><span class="material-symbols-outlined">done</span>Pruning &amp; trimming</li>
+                <li><span class="material-symbols-outlined">done</span>Stump removal</li>
+                <li><span class="material-symbols-outlined">done</span>Tree planting</li>
+              </ul>
+              <a href="index.html#contact" class="service-card__link">
+                Get a Quote <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+          <!-- 6. Drainage & Grading -->
+          <article class="service-card fade-up fade-up-delay-2" id="drainage">
+            <div class="service-card__img-wrap">
+              <img class="service-card__img"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuC8mmzQK5rohynT1oULZGMU-nZTQmXZuMCwGE07kzMtPyZwhZM3G8gDoAnouOqtTSWpkhxBHRS2N27jnu-6uLpEHIXyTKli1jqODUw7EAh_KVdIe0Zy2fKOmnUE4INicLAtlO8e3R-xT6ELJst3QRP76ovXC0D71QlQThPpYt8ks58c0g9yBW-EFZx92xj7TsiMtGUNzu0QhgYilDw92ANryzC1GJm1ZrRrMszpzTClvS1YTStYzUSbEgqVTC452X2cgNXXvbgeVURV"
+                alt="Excavation equipment shaping drainage swales"
+                loading="lazy"
+              />
+            </div>
+            <div class="service-card__body">
+              <div class="service-card__category">
+                <span class="material-symbols-outlined fill" style="font-size:18px">water_drop</span>
+                <span>Engineering</span>
+              </div>
+              <h2 class="t-h3-sm service-card__title">Drainage &amp; Grading</h2>
+              <p class="t-body-md service-card__desc">Site grading, French drains, and subsurface drainage systems engineered to protect your property from water damage.</p>
+              <ul class="service-card__list">
+                <li><span class="material-symbols-outlined">done</span>Site grading &amp; earthwork</li>
+                <li><span class="material-symbols-outlined">done</span>French &amp; subsurface drains</li>
+                <li><span class="material-symbols-outlined">done</span>Foundation &amp; runoff management</li>
+              </ul>
+              <a href="index.html#contact" class="service-card__link">
+                Get a Quote <span class="material-symbols-outlined">arrow_forward</span>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div>
+        <p class="footer__brand">APD Landscape</p>
+        <p class="footer__copy">© 2025 APD Landscape.<br>Northern Virginia's Landscape<br>&amp; Hardscape Experts.</p>
+      </div>
+      <div>
+        <p class="footer__col-title">Hardscape</p>
+        <ul class="footer__links">
+          <li><a href="hardscaping.html" class="footer__link">Patios &amp; Masonry</a></li>
+          <li><a href="services.html#retaining-walls" class="footer__link">Retaining Walls</a></li>
+          <li><a href="services.html#driveways" class="footer__link">Driveways &amp; Walkways</a></li>
+          <li><a href="services.html#driveways" class="footer__link">Concrete Work</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Landscape</p>
+        <ul class="footer__links">
+          <li><a href="services.html#lawn-care" class="footer__link">Lawn Care &amp; Turf</a></li>
+          <li><a href="services.html#tree-care" class="footer__link">Tree Removal &amp; Care</a></li>
+          <li><a href="services.html#drainage" class="footer__link">Drainage &amp; Grading</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="footer__col-title">Company</p>
+        <ul class="footer__links">
+          <li><a href="index.html#contact" class="footer__link">Contact</a></li>
+          <li><a href="#" class="footer__link">Privacy Policy</a></li>
+          <li><a href="#" class="footer__link">Accessibility</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <button class="sticky-cta" data-modal="quote">
+    <span class="material-symbols-outlined">edit_document</span>
+    Get a Quote
+  </button>
+
+  <div id="quote-overlay" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:200;backdrop-filter:blur(4px)"></div>
+  <div id="quote-modal" style="display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+       background:white;border-radius:8px;padding:40px;width:min(520px,90vw);z-index:201;
+       box-shadow:0 24px 64px rgba(0,0,0,0.2);overflow-y:auto;max-height:90vh">
+    <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:24px">
+      <h2 class="t-h3">Get a Quote</h2>
+      <button id="modal-close" aria-label="Close" style="padding:4px;color:var(--color-secondary)">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <form class="form-stack" novalidate>
+      <div class="form-grid">
+        <div><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="John" required /></div>
+        <div><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Doe" required /></div>
+      </div>
+      <div><label class="form-label">Email</label><input class="form-input" type="email" placeholder="john@example.com" required /></div>
+      <div>
+        <label class="form-label">Service</label>
+        <select class="form-input">
+          <option value="">Select...</option>
+          <option>Hardscaping &amp; Patios</option>
+          <option>Retaining Walls</option>
+          <option>Driveways &amp; Walkways</option>
+          <option>Concrete Work</option>
+          <option>Lawn Care &amp; Turf</option>
+          <option>Tree Removal &amp; Care</option>
+          <option>Drainage &amp; Grading</option>
+          <option>Full Property Overhaul</option>
+        </select>
+      </div>
+      <div><label class="form-label">Details</label><textarea class="form-input" rows="3" placeholder="Briefly describe your project..."></textarea></div>
+      <button class="btn-primary" type="submit" style="width:100%;justify-content:center;padding:16px">Submit Request</button>
+    </form>
+  </div>
+
+  <script>
+    document.querySelectorAll('[data-modal="quote"]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.getElementById('quote-modal').style.display = 'block';
+        document.getElementById('quote-overlay').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+      });
+    });
+    document.getElementById('quote-overlay').addEventListener('click', closeModal);
+    document.getElementById('modal-close').addEventListener('click', closeModal);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    function closeModal() {
+      document.getElementById('quote-modal').style.display = 'none';
+      document.getElementById('quote-overlay').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.getElementById('quote-modal').querySelector('form').addEventListener('submit', e => {
+      e.preventDefault();
+      e.currentTarget.innerHTML = `
+        <div style="text-align:center;padding:32px 0">
+          <span class="material-symbols-outlined" style="font-size:52px;color:var(--color-primary);display:block;margin-bottom:16px">check_circle</span>
+          <p style="font-family:var(--font-serif);font-size:1.5rem;font-weight:600;margin-bottom:8px">Request Received</p>
+          <p style="color:var(--color-secondary)">We'll contact you within 24 hours.</p>
+        </div>`;
+      setTimeout(closeModal, 2800);
+    });
+  </script>
+  <script src="assets/main.js"></script>
+</body>
+</html>
