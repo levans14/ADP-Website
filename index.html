@@ -562,23 +562,79 @@
       document.getElementById('quote-overlay').style.display = 'none';
       document.body.style.overflow = '';
     }
-    // Form submission
-    document.getElementById('quote-modal').querySelector('form').addEventListener('submit', e => {
+    const EDGE_FN = 'https://jsqeobmrjaiwduvwevih.supabase.co/functions/v1/submit-lead';
+
+    async function postLead(payload, onSuccess, onError) {
+      try {
+        const res = await fetch(EDGE_FN, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        if (!res.ok) throw new Error('Server error');
+        onSuccess();
+      } catch {
+        onError();
+      }
+    }
+
+    // Quote modal form
+    document.getElementById('quote-modal').querySelector('form').addEventListener('submit', function(e) {
       e.preventDefault();
-      e.currentTarget.innerHTML = `
-        <div style="text-align:center;padding:32px 0">
-          <span class="material-symbols-outlined" style="font-size:52px;color:var(--color-primary);display:block;margin-bottom:16px">check_circle</span>
-          <p class="t-h3" style="margin-bottom:8px;font-family:var(--font-serif)">Request Received</p>
-          <p class="t-body-md" style="color:var(--color-secondary)">We'll contact you within 24 hours.</p>
-        </div>`;
-      setTimeout(closeModal, 2800);
+      const form = e.currentTarget;
+      const btn = form.querySelector('button[type=submit]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      const payload = {
+        type: 'quote',
+        name: (document.getElementById('m-first').value + ' ' + document.getElementById('m-last').value).trim(),
+        email: document.getElementById('m-email').value.trim(),
+        service: document.getElementById('m-service').value,
+        message: document.getElementById('m-details').value.trim()
+      };
+
+      postLead(payload, () => {
+        form.innerHTML = `
+          <div style="text-align:center;padding:32px 0">
+            <span class="material-symbols-outlined" style="font-size:52px;color:var(--color-primary);display:block;margin-bottom:16px">check_circle</span>
+            <p class="t-h3" style="margin-bottom:8px;font-family:var(--font-serif)">Request Received</p>
+            <p class="t-body-md" style="color:var(--color-secondary)">We'll contact you within 24 hours.</p>
+          </div>`;
+        setTimeout(closeModal, 2800);
+      }, () => {
+        btn.textContent = 'Get My Free Quote';
+        btn.disabled = false;
+        btn.insertAdjacentHTML('afterend', '<p style="color:red;font-size:14px;margin-top:8px">Something went wrong — please try again.</p>');
+      });
     });
-    document.querySelector('#contact form').addEventListener('submit', e => {
+
+    // Contact / consultation form
+    document.querySelector('#contact form').addEventListener('submit', function(e) {
       e.preventDefault();
-      const btn = e.currentTarget.querySelector('button[type=submit]');
-      btn.textContent = 'Request Sent!';
-      btn.style.background = 'var(--color-surface-tint)';
-      setTimeout(() => { btn.textContent = 'Request Consultation'; btn.style.background = ''; }, 3000);
+      const form = e.currentTarget;
+      const btn = form.querySelector('button[type=submit]');
+      btn.textContent = 'Sending…';
+      btn.disabled = true;
+
+      const payload = {
+        type: 'consultation',
+        name: (document.getElementById('first-name').value + ' ' + document.getElementById('last-name').value).trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        service: document.getElementById('project-type').value,
+        message: document.getElementById('details').value.trim()
+      };
+
+      postLead(payload, () => {
+        btn.textContent = 'Request Sent!';
+        btn.style.background = 'var(--color-surface-tint)';
+        setTimeout(() => { btn.textContent = 'Request Consultation'; btn.style.background = ''; btn.disabled = false; }, 3000);
+      }, () => {
+        btn.textContent = 'Request Consultation';
+        btn.disabled = false;
+        btn.insertAdjacentHTML('afterend', '<p style="color:red;font-size:14px;margin-top:8px">Something went wrong — please try again.</p>');
+      });
     });
   </script>
   <script src="assets/main.js"></script>
